@@ -2,6 +2,8 @@ A Collection of Scripts that modify the Layout/Style of Creed
 
 Made by: SyndiShanX#4620
 
+Should be safe, only word I got when asking about it was "you do you man" -Kray
+
 Installation:
 Create a new Script in TamperMonkey or similar, then paste the Script in and Save
 
