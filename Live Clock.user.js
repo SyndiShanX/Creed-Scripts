@@ -224,7 +224,7 @@ function clanTime() {
   document.getElementsByClassName('contentcontent')[0].getElementsByTagName('td')[2].textContent = 
   ageYears + ageMonths + ageWeeks + ageDays + ageHours + ageMinutes + ageSeconds;
 
-  },500);
+  }, 500);
 }
 
 function checkTime(i) {

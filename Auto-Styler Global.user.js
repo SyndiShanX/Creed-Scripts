@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name           SyndiShanX's Auto-Styler (Global)
+// @name           SyndiShanX's Auto-Styler Global
 // @author         SyndiShanX
 // @include        https://pokemoncreed.net/*
 // @include        http://pokemoncreed.net/*
@@ -12,6 +12,14 @@
 // @version        1.15
 // ==/UserScript==
 
+// Snow
+//var head = document.getElementsByTagName('head')[0];
+//var script = document.createElement("script");
+//script.src = 'https://syndishanx.github.io/Website/Downloads/Misc/snow.js'
+//head.appendChild(script);
+
+// Updated (8/19/20) synMenu3 was broken server-side
+// Updated (12/1/20) synMenu3 was fixed server-side --var synHTML3Fix = synHTML3[0].split("</a></li>\n\n<li class=")--
 // Left Menu
 var synMenuEnd = "</a></li></ul></div>"
 var synMenuStart = '<li class='

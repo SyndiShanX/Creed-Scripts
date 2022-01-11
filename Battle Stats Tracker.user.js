@@ -192,6 +192,15 @@ function numberWithCommas(x) {
       body.insertBefore(customContent, body.childNodes[21])
       customHTML0 = document.getElementsByClassName('footer')[0].innerHTML
       document.getElementsByClassName('footer')[0].innerHTML = '<br>' + customHTML0 + '<br>'
+      
+      //Vertical Menu Test (Broken)
+      //customHTML1 = document.getElementsByClassName('footer')[0].innerHTML.split('</th><th>')[0] + document.getElementsByClassName('footer')[0].innerHTML.split('</th><th>')[1] + '</th><br>'
+      //customHTML2 = document.getElementsByClassName('footer')[0].innerHTML.split('</th><th>')[2] + document.getElementsByClassName('footer')[0].innerHTML.split('</th><th>')[3] + '</th><br>'
+      //customHTML3 = document.getElementsByClassName('footer')[0].innerHTML.split('</th><th>')[4] + document.getElementsByClassName('footer')[0].innerHTML.split('</th><th>')[5] + '</th><br>'
+      //customHTML4 = document.getElementsByClassName('footer')[0].innerHTML.split('</th><th>')[6] + document.getElementsByClassName('footer')[0].innerHTML.split('</th><th>')[7] + '</th><br>'
+      //customHTML5 = document.getElementsByClassName('footer')[0].innerHTML.split('</th><th>')[8] + document.getElementsByClassName('footer')[0].innerHTML.split('</th><th>')[9] + '</th>'
+      //customHTML6 = document.getElementsByClassName('footer')[0].innerHTML.split('</th><th>')[10]
+      //document.getElementsByClassName('footer')[0].innerHTML = '<br>' + customHTML1 + customHTML2 + customHTML3 + customHTML4 + customHTML5 + customHTML6 + '<br>'
     }
   }
 
