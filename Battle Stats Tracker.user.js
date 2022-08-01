@@ -21,7 +21,7 @@ function numberWithCommas(x) {
   let battleTotal = await GM.getValue('TotalBattles', 0);
   let battleClanCredits = await GM.getValue('ClanCredits', 0);
   var battleClanCreditsStr = '' + battleClanCredits + ''
-  var battleClanCreditsSaved = parseInt(battleClanCreditsStr.trim().replace(/,/g, ''))
+  battleClanCreditsSaved = parseInt(battleClanCreditsStr.trim().replace(/,/g, ''))
   let battleEXP = await GM.getValue('EXP', 0);
   var battleEXPStr = '' + battleEXP + ''
   var battleEXPSaved = parseInt(battleEXPStr.trim().replace(/,/g, ''))
@@ -35,49 +35,49 @@ function numberWithCommas(x) {
   var battleDamageTakenStr = '' + battleDamageTaken + ''
   var battleDamageTakenSaved = parseInt(battleDamageTakenStr.trim().replace(/,/g, ''))
   if (window.location.pathname == '/battle.php') {
-    var battleText = document.getElementsByClassName("bord")[0].innerText
+    battleText = document.getElementsByClassName("bord")[0].innerText
     if (battleText.search('defeated') != -1) {
       battleTotal = parseInt(battleTotal + 1)
       await GM.setValue('TotalBattles', battleTotal)
-      var battleClanCredits0 = battleText.split(', and recieved ')[1].split(' (Capped)')[0]
-      var battleClanCredits1 = parseInt(battleClanCredits0.trim().replace(/,/g, ''))
+      battleClanCredits0 = battleText.split(', and recieved ')[1].split(' (Capped)')[0]
+      battleClanCredits1 = parseInt(battleClanCredits0.trim().replace(/,/g, ''))
       if (battleClanCredits1 > 409026) {
-        var battleClanPoints2 = 409026
+        battleClanPoints2 = 409026
       }
-      var battleClanCreditsFinal = parseInt(battleClanCreditsSaved + battleClanPoints2)
+      battleClanCreditsFinal = parseInt(battleClanCreditsSaved + battleClanPoints2)
       battleClanCreditsFinal = numberWithCommas(battleClanCreditsFinal)
       await GM.setValue('ClanCredits', battleClanCreditsFinal)
       let battleClanCredits = await GM.getValue('ClanCredits', 0);
       
       if (battleText.split('recieved ')[1].split(' XP')[0] != null) {
-        var battleEXP0 = battleText.split('recieved ')[1].split(' XP')[0]
-        var battleEXP1 = parseInt(battleEXP0.trim().replace(/,/g, ''))
-        var battleEXPFinal = parseInt(battleEXPSaved + battleEXP1)
+        battleEXP0 = battleText.split('recieved ')[1].split(' XP')[0]
+        battleEXP1 = parseInt(battleEXP0.trim().replace(/,/g, ''))
+        battleEXPFinal = parseInt(battleEXPSaved + battleEXP1)
         battleEXPFinal = numberWithCommas(battleEXPFinal)
         await GM.setValue('EXP', battleEXPFinal)
         let battleEXP = await GM.getValue('EXP', 0);
       }
       if (battleText.split('XP, $')[1].split(', and')[0] != null) {
-        var battleCash0 = battleText.split('XP, $')[1].split(', and')[0]
-        var battleCash1 = parseInt(battleCash0.trim().replace(/,/g, ''))
-        var battleCashFinal = parseInt(battleCashSaved + battleCash1)
+        battleCash0 = battleText.split('XP, $')[1].split(', and')[0]
+        battleCash1 = parseInt(battleCash0.trim().replace(/,/g, ''))
+        battleCashFinal = parseInt(battleCashSaved + battleCash1)
         battleCashFinal = numberWithCommas(battleCashFinal)
         await GM.setValue('Cash', battleCashFinal)
         let battleCash = await GM.getValue('Cash', 0);
       }
       if (battleText.split('for ')[1].split(' damage')[1] != null) {
-        var battleDamageDealt0 = battleText.split('for ')[1].split(' damage')[0]
-        var battleDamageDealt1 = parseInt(battleDamageDealt0.trim().replace(/,/g, ''))
-        var battleDamageDealtFinal = parseInt(battleDamageDealtSaved + battleDamageDealt1)
+        battleDamageDealt0 = battleText.split('for ')[1].split(' damage')[0]
+        battleDamageDealt1 = parseInt(battleDamageDealt0.trim().replace(/,/g, ''))
+        battleDamageDealtFinal = parseInt(battleDamageDealtSaved + battleDamageDealt1)
         battleDamageDealtFinal = numberWithCommas(battleDamageDealtFinal)
         await GM.setValue('DamageDealt', battleDamageDealtFinal)
         let battleDamageDealt = await GM.getValue('DamageDealt', 0);
       }
       if (battleText.split('for ')[2] != undefined) {
         if (battleText.split('for ')[2].split(' damage')[0] != null) {
-          var battleDamageTaken0 = battleText.split('for ')[2].split(' damage')[0]
-          var battleDamageTaken1 = parseInt(battleDamageTaken0.trim().replace(/,/g, ''))
-          var battleDamageTakenFinal = parseInt(battleDamageTakenSaved + battleDamageTaken1)
+          battleDamageTaken0 = battleText.split('for ')[2].split(' damage')[0]
+          battleDamageTaken1 = parseInt(battleDamageTaken0.trim().replace(/,/g, ''))
+          battleDamageTakenFinal = parseInt(battleDamageTakenSaved + battleDamageTaken1)
           battleDamageTakenFinal = numberWithCommas(battleDamageTakenFinal)
           await GM.setValue('DamageTaken', battleDamageTakenFinal)
           let battleDamageTaken = await GM.getValue('DamageTaken', 0);
@@ -85,9 +85,9 @@ function numberWithCommas(x) {
       }
     } else if (battleText.search('defeated') == -1 && battleText.search('damage') != -1) {
       if (battleText.split('for ')[1].split(' damage')[1] != null) {
-        var battleDamageDealt0 = battleText.split('for ')[1].split(' damage')[0]
-        var battleDamageDealt1 = parseInt(battleDamageDealt0.trim().replace(/,/g, ''))
-        var battleDamageDealtFinal = parseInt(battleDamageDealtSaved + battleDamageDealt1)
+        battleDamageDealt0 = battleText.split('for ')[1].split(' damage')[0]
+        battleDamageDealt1 = parseInt(battleDamageDealt0.trim().replace(/,/g, ''))
+        battleDamageDealtFinal = parseInt(battleDamageDealtSaved + battleDamageDealt1)
         battleDamageDealtFinal = numberWithCommas(battleDamageDealtFinal)
         await GM.setValue('DamageDealt', battleDamageDealtFinal)
         let battleDamageDealt = await GM.getValue('DamageDealt', 0);
@@ -96,9 +96,9 @@ function numberWithCommas(x) {
     if (battleText.search('defeated') == -1 && battleText.search('hit your') != -1) {
       if (battleText.split('for ')[2] != undefined) {
         if (battleText.split('for ')[2].split(' damage')[0] != null) {
-          var battleDamageTaken0 = battleText.split('for ')[2].split(' damage')[0]
-          var battleDamageTaken1 = parseInt(battleDamageTaken0.trim().replace(/,/g, ''))
-          var battleDamageTakenFinal = parseInt(battleDamageTakenSaved + battleDamageTaken1)
+          battleDamageTaken0 = battleText.split('for ')[2].split(' damage')[0]
+          battleDamageTaken1 = parseInt(battleDamageTaken0.trim().replace(/,/g, ''))
+          battleDamageTakenFinal = parseInt(battleDamageTakenSaved + battleDamageTaken1)
           battleDamageTakenFinal = numberWithCommas(battleDamageTakenFinal)
           await GM.setValue('DamageTaken', battleDamageTakenFinal)
           let battleDamageTaken = await GM.getValue('DamageTaken', 0);
@@ -109,13 +109,13 @@ function numberWithCommas(x) {
     //------------------------------------------------------------------------------------
   
     if (window.location.search.split('?c=')[1] != null){
-      var battleTextMe = battleText.split('\n\n')[0]
-      var battleTextEnemy = battleText.split('\n\n')[1]
+      battleTextMe = battleText.split('\n\n')[0]
+      battleTextEnemy = battleText.split('\n\n')[1]
       if (battleTextMe.search('for') != -1 && battleTextMe.search('damage') != -1) {
         if (battleTextMe.split('for ')[1].split(' damage')[1] != null) {
-          var battleDamageDealt0 = battleTextMe.split('for ')[1].split(' damage')[0]
-          var battleDamageDealt1 = parseInt(battleDamageDealt0.trim().replace(/,/g, ''))
-          var battleDamageDealtFinal = parseInt(battleDamageDealtSaved + battleDamageDealt1)
+          battleDamageDealt0 = battleTextMe.split('for ')[1].split(' damage')[0]
+          battleDamageDealt1 = parseInt(battleDamageDealt0.trim().replace(/,/g, ''))
+          battleDamageDealtFinal = parseInt(battleDamageDealtSaved + battleDamageDealt1)
           battleDamageDealtFinal = numberWithCommas(battleDamageDealtFinal)
           await GM.setValue('DamageDealt', battleDamageDealtFinal)
           let battleDamageDealt = await GM.getValue('DamageDealt', 0);
@@ -123,9 +123,9 @@ function numberWithCommas(x) {
       }
       if (battleTextEnemy.search(', and hit your ') != -1) {
         if (battleTextEnemy.split(', and hit your ')[1].split('for ')[1].split(' damage')[1] != null) {
-          var battleDamageTaken0 = battleTextEnemy.split('for ')[1].split(' damage')[0]
-          var battleDamageTaken1 = parseInt(battleDamageTaken0.trim().replace(/,/g, ''))
-          var battleDamageTakenFinal = parseInt(battleDamageTakenSaved + battleDamageTaken1)
+          battleDamageTaken0 = battleTextEnemy.split('for ')[1].split(' damage')[0]
+          battleDamageTaken1 = parseInt(battleDamageTaken0.trim().replace(/,/g, ''))
+          battleDamageTakenFinal = parseInt(battleDamageTakenSaved + battleDamageTaken1)
           battleDamageTakenFinal = numberWithCommas(battleDamageTakenFinal)
           await GM.setValue('DamageTaken', battleDamageTakenFinal)
           let battleDamageTaken = await GM.getValue('DamageTaken', 0);
@@ -206,11 +206,15 @@ function numberWithCommas(x) {
       }
     }
   } else if (window.location.pathname == '/clanrewards.php') {
-    if (document.getElementsByClassName('contentcontent')[0].getElementsByTagName('center')[0].innerText.split('spent 10')[1] != null) {
-      var battleClanCreditsFinal = parseInt(battleClanCreditsSaved - 10000000)
-      battleClanCreditsFinal = numberWithCommas(battleClanCreditsFinal)
-      await GM.setValue('ClanCredits', battleClanCreditsFinal)
-      let battleClanCredits = await GM.getValue('ClanCredits', 0);
+    if (document.getElementsByClassName('contentcontent')[0].getElementsByTagName('center')[0].innerText.split('successfully spent ')[1] != null) {
+      spentCredits = document.getElementsByClassName('contentcontent')[0].getElementsByTagName('center')[0].innerText.split('successfully spent ')[1].split(' clan credits')[0]
+      battleClanCreditsFinal = parseInt(battleClanCreditsSaved - parseInt(spentCredits.trim().replace(/,/g, '')))
+    } else if (document.getElementsByClassName('contentcontent')[0].getElementsByTagName('center')[0].innerText.split('You currently have: ')[1] != null) {
+      currentcredits = document.getElementsByClassName('contentcontent')[0].getElementsByTagName('center')[0].innerText.split('You currently have: ')[1].split(' clan credits')[0]
+      battleClanCreditsFinal = parseInt(currentcredits.trim().replace(/,/g, ''))
     }
+    battleClanCreditsFinal = numberWithCommas(battleClanCreditsFinal)
+    await GM.setValue('ClanCredits', battleClanCreditsFinal)
+    let battleClanCredits = await GM.getValue('ClanCredits', 0);
   }
 })();
