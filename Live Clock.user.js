@@ -74,8 +74,8 @@ function startTime() {
   var m = today.getMinutes();
   var s = today.getSeconds();
 
-  h = h + 5 // Change Local Timezone to Creed Timezone Daylight Savings
-  //h = h + 4 // Change Local Timezone to Creed Timezone No Daylight Savings
+  //h = h + 5 // Change Local Timezone to Creed Timezone Daylight Savings
+  h = h + 4 // Change Local Timezone to Creed Timezone No Daylight Savings
 
   if (h >= 24) {
     h = h - 24
