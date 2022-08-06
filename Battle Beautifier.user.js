@@ -3,6 +3,7 @@
 // @author         SyndiShanX
 // @include        https://pokemoncreed.net/battle.php?*
 // @include        http://pokemoncreed.net/battle.php?*
+// @run-at         document-end
 // @version        1.15
 // ==/UserScript==
 function numberWithCommas(x) {
@@ -65,7 +66,7 @@ if (window.location.pathname == "/battle.php") {
     pokeLevel()
     battleText = document.getElementsByClassName("bord")[0].innerText
     
-    console.log(battleText)
+    //console.log(battleText)
     
     battleText0 = battleText.split('.')[0]
     battleText1 = battleText.split('\n\n')[0]
@@ -236,4 +237,6 @@ if (window.location.pathname == "/battle.php") {
       }
     }
   }
+  //document.getElementsByClassName("bord")[0].remove()
+  //document.getElementsByClassName("battlefast")[0].children[0].children[3].remove()
 }

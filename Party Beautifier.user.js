@@ -182,7 +182,6 @@ if (window.location.href.split('=')[0] == 'https://pokemoncreed.net/pokemon.php?
   document.getElementsByTagName('head')[0].getElementsByTagName('link')[0].href = 'https://pokemoncreed.net/s4.css?v=4'
 } else {
   //Global Party Level Beautifier
-  //pokeBar = document.getElementsByTagName("body")[0].children[0].children[0].children[0].children[0]
   pokeBar = document.getElementsByClassName("synleftmenu")[0].children[0].children[0].children[0]
   pokeBar_2 = document.getElementsByClassName("rightmenu")[0].children[1].children[0]
   
@@ -208,7 +207,6 @@ if (window.location.href.split('=')[0] == 'https://pokemoncreed.net/pokemon.php?
       pokeBar1.children[0].children[0].children[6].children[0].outerHTML = '<span class="fingradient">' + levelGradient + '</span>'
     }
     levelGradient = []
-  	//pokeBar1.children[0].children[0].children[6].children[0].innerText = pokeBarLevel1_2
   }
   if (pokeBar2.children[0].children[0].tagName != 'IMG') {
   	pokeBarLevel2 = pokeBar2.children[0].children[0].children[6].children[0].innerText
@@ -225,7 +223,6 @@ if (window.location.href.split('=')[0] == 'https://pokemoncreed.net/pokemon.php?
       pokeBar2.children[0].children[0].children[6].children[0].outerHTML = '<span class="fingradient">' + levelGradient + '</span>'
     }
     levelGradient = []
-  	//pokeBar2.children[0].children[0].children[6].children[0].innerText = pokeBarLevel2_2
   }
   if (pokeBar3.children[0].children[0].tagName != 'IMG') {
   	pokeBarLevel3 = pokeBar3.children[0].children[0].children[6].children[0].innerText
@@ -242,7 +239,6 @@ if (window.location.href.split('=')[0] == 'https://pokemoncreed.net/pokemon.php?
       pokeBar3.children[0].children[0].children[6].children[0].outerHTML = '<span class="fingradient">' + levelGradient + '</span>'
     }
     levelGradient = []
-  	//pokeBar3.children[0].children[0].children[6].children[0].innerText = pokeBarLevel3_2
   }
   if (pokeBar4.children[0].children[0].tagName != 'IMG') {
   	pokeBarLevel4 = pokeBar4.children[0].children[0].children[6].children[0].innerText
@@ -259,7 +255,6 @@ if (window.location.href.split('=')[0] == 'https://pokemoncreed.net/pokemon.php?
       pokeBar4.children[0].children[0].children[6].children[0].outerHTML = '<span class="fingradient">' + levelGradient + '</span>'
     }
     levelGradient = []
-  	//pokeBar4.children[0].children[0].children[6].children[0].innerText = pokeBarLevel4_2
   }
   if (pokeBar5.children[0].children[0].tagName != 'IMG') {
   	pokeBarLevel5 = pokeBar5.children[0].children[0].children[6].children[0].innerText
@@ -276,7 +271,6 @@ if (window.location.href.split('=')[0] == 'https://pokemoncreed.net/pokemon.php?
       pokeBar5.children[0].children[0].children[6].children[0].outerHTML = '<span class="fingradient">' + levelGradient + '</span>'
     }
     levelGradient = []
-  	//pokeBar5.children[0].children[0].children[6].children[0].innerText = pokeBarLevel5_2
   }
   if (pokeBar6.children[0].children[0].tagName != 'IMG') {
   	pokeBarLevel6 = pokeBar6.children[0].children[0].children[6].children[0].innerText
@@ -292,6 +286,5 @@ if (window.location.href.split('=')[0] == 'https://pokemoncreed.net/pokemon.php?
     } else {
       pokeBar6.children[0].children[0].children[6].children[0].outerHTML = '<span class="fingradient">' + levelGradient + '</span>'
     }
-  	//pokeBar6.children[0].children[0].children[6].children[0].innerText = pokeBarLevel6_2
   }
 }
