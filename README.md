@@ -14,21 +14,22 @@ Create a new Script in TamperMonkey or similar, then paste the Script in and Sav
 Some Scripts need to be used in Groups:
 
 ```
-Auto-Styler (Global)
-Auto-Styler Global CSS
-Auto-Styler CSS Replacement
-Auto-Party Beautifier
+Global Styler
+Global CSS Styler
+CSS Replacement Styler
+Party Beautifier
 ```
 
 ```
-Auto-Battle Beautifier
+Battle Beautifier
 Battle Stats Tracker
 ```
 
 Some Scripts can be used in any Combination:
 
 ```
-Auto-Styler Advent CSS
+Advent CSS Styler
+Map Stats Tracker
 Advent Tracker
 Global Creed Remover
 Live Clock
