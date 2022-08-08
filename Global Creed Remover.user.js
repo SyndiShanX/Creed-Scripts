@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name           SyndiShanX's Global Creed Remover
+// @name           Global Creed Remover
 // @author         SyndiShanX
 // @include        https://pokemoncreed.net/*
 // @include        http://pokemoncreed.net/*

@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name           SyndiShanX's Auto-Battle Beautifier
+// @name           Battle Beautifier
 // @author         SyndiShanX
 // @include        https://pokemoncreed.net/battle.php?*
 // @include        http://pokemoncreed.net/battle.php?*

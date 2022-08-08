@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name           SyndiShanX's Live Clock
+// @name           Live Clock
 // @author         SyndiShanX
 // @include        https://pokemoncreed.net/*
 // @include        http://pokemoncreed.net/*

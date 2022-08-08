@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name           SyndiShanX's Map Stats Tracker
+// @name           Map Stats Tracker
 // @author         SyndiShanX
 // @include        https://pokemoncreed.net/map.php*
 // @include        http://pokemoncreed.net/map.php*

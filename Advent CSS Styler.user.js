@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name           SyndiShanX's Auto-Styler Advent CSS
+// @name           Advent CSS Styler
 // @author         SyndiShanX
 // @include        https://pokemoncreed.net/advent.php*
 // @include        http://pokemoncreed.net/advent.php*

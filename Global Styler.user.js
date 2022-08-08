@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name           SyndiShanX's Auto-Styler Global
+// @name           Global Styler
 // @author         SyndiShanX
 // @include        https://pokemoncreed.net/*
 // @include        http://pokemoncreed.net/*

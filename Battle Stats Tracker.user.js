@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name           SyndiShanX's Battle Stats Tracker
+// @name           Battle Stats Tracker
 // @author         SyndiShanX
 // @include        https://pokemoncreed.net/battle.php*
 // @include        http://pokemoncreed.net/battle.php*

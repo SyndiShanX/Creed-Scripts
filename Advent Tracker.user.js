@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name           SyndiShanX's Advent Tracker
+// @name           Advent Tracker
 // @author         SyndiShanX
 // @include        https://pokemoncreed.net/advent.php*
 // @include        http://pokemoncreed.net/advent.php*

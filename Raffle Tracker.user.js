@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name           SyndiShanX's Raffle Tracker
+// @name           Raffle Tracker
 // @author         SyndiShanX
 // @include        https://pokemoncreed.net/raffle.php*
 // @include        http://pokemoncreed.net/raffle.php*

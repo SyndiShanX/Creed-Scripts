@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name           SyndiShanX's Auto-Party Beautifier
+// @name           Party Beautifier
 // @author         SyndiShanX
 // @include        https://pokemoncreed.net/*
 // @include        http://pokemoncreed.net/*

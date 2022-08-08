@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name           SyndiShanX's Auto-Styler CSS Replacement
+// @name           CSS Replacement Styler
 // @author         SyndiShanX
 // @include        https://pokemoncreed.net/login*
 // @include        http://pokemoncreed.net/login*

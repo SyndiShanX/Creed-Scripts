@@ -1,14 +1,14 @@
 // ==UserScript==
-// @name			 SyndiShanX's Auto-Styler Global CSS
-// @author		 SyndiShanX
-// @include		https://pokemoncreed.net/*
-// @include		http://pokemoncreed.net/*
-// @exclude		https://pokemoncreed.net/index*
-// @exclude		http://pokemoncreed.net/index*
-// @exclude		https://pokemoncreed.net/forums*
-// @exclude		http://pokemoncreed.net/forums*
-// @run-at		 document-body
-// @version		1.15
+// @name           Global CSS Styler
+// @author		 		 SyndiShanX
+// @include				 https://pokemoncreed.net/*
+// @include				 http://pokemoncreed.net/*
+// @exclude				 https://pokemoncreed.net/index*
+// @exclude				 http://pokemoncreed.net/index*
+// @exclude				 https://pokemoncreed.net/forums*
+// @exclude				 http://pokemoncreed.net/forums*
+// @run-at				 document-body
+// @version				 1.15
 // ==/UserScript==
 
 var synCSS = `
