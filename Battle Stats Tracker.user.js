@@ -16,6 +16,7 @@ function numberWithCommas(x) {
 	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 battleID = '00000'
+updatedClanCredits = false
 function statsLoop() {
   (async () => {
     if (document.getElementsByClassName('battleText')[0] != null) {
@@ -144,16 +145,23 @@ function statsLoop() {
         }
       }
     } else if (window.location.pathname == '/clanrewards.php') {
-      if (document.getElementsByClassName('contentcontent')[0].getElementsByTagName('center')[0].innerText.split('successfully spent ')[1] != null) {
-        spentCredits = document.getElementsByClassName('contentcontent')[0].getElementsByTagName('center')[0].innerText.split('successfully spent ')[1].split(' clan credits')[0]
-        currentClanCreditsFinal = parseInt(currentClanCreditsSaved - parseInt(spentCredits.trim().replace(/,/g, '')))
-      } else if (document.getElementsByClassName('contentcontent')[0].getElementsByTagName('center')[0].innerText.split('You currently have: ')[1] != null) {
-        currentCredits = document.getElementsByClassName('contentcontent')[0].getElementsByTagName('center')[0].innerText.split('You currently have: ')[1].split(' clan credits')[0]
-        currentClanCreditsFinal = parseInt(currentCredits.trim().replace(/,/g, ''))
+      if (updatedClanCredits != true) {
+        if (document.getElementsByClassName('contentcontent')[0].getElementsByTagName('center')[0].innerText.split('successfully spent ')[1] != null) {
+          currentClanCreditsSaved = await GM.getValue('ClanCredits', 0);
+          spentCredits = document.getElementsByClassName('contentcontent')[0].getElementsByTagName('center')[0].innerText.split('successfully spent ')[1].split(' clan credits')[0]
+          currentClanCreditsFinal = parseInt(parseInt(currentClanCreditsSaved).trim().replace(/,/g, '') - parseInt(spentCredits.trim().replace(/,/g, '')))
+        } else if (document.getElementsByClassName('contentcontent')[0].getElementsByTagName('center')[0].innerText.split('You currently have: ')[1] != null) {
+          currentCredits = document.getElementsByClassName('contentcontent')[0].getElementsByTagName('center')[0].innerText.split('You currently have: ')[1].split(' clan credits')[0]
+          currentClanCreditsFinal = parseInt(currentCredits.trim().replace(/,/g, ''))
+        } else if (document.getElementsByClassName('contentcontent')[1].getElementsByTagName('center')[0].innerText.split('You currently have: ')[1] != null) {
+          currentCredits = document.getElementsByClassName('contentcontent')[1].getElementsByTagName('center')[0].innerText.split('You currently have: ')[1].split(' clan credits')[0]
+          currentClanCreditsFinal = parseInt(currentCredits.trim().replace(/,/g, ''))
+        }
+        currentClanCreditsFinal = numberWithCommas(currentClanCreditsFinal)
+        await GM.setValue('ClanCredits', currentClanCreditsFinal)
+        let currentClanCredits = await GM.getValue('ClanCredits', 0);
+        updatedClanCredits = true
       }
-      currentClanCreditsFinal = numberWithCommas(currentClanCreditsFinal)
-      await GM.setValue('ClanCredits', currentClanCreditsFinal)
-      let currentClanCredits = await GM.getValue('ClanCredits', 0);
     } else { setTimeout(function(){ statsLoop() }, 250); }
     if (window.location.pathname == '/battle.php') {
       let battleTotal = await GM.getValue('TotalBattles', 0);
