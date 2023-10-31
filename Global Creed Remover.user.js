@@ -1,16 +1,15 @@
 // ==UserScript==
-// @name           Global Creed Remover
-// @author         SyndiShanX
-// @include        https://pokemoncreed.net/*
-// @include        http://pokemoncreed.net/*
-// @exclude        https://pokemoncreed.net/login*
-// @exclude        http://pokemoncreed.net/login*
-// @exclude        https://pokemoncreed.net/index*
-// @exclude        http://pokemoncreed.net/index*
-// @exclude        https://pokemoncreed.net/forums*
-// @exclude        http://pokemoncreed.net/forums*
-// @version        1.0
-// @run-at         document-end
+// @name			Global Creed Remover
+// @author		SyndiShanX
+// @include		https://pokemoncreed.net/*
+// @include		http://pokemoncreed.net/*
+// @exclude		https://pokemoncreed.net/login*
+// @exclude		http://pokemoncreed.net/login*
+// @exclude		https://pokemoncreed.net/index*
+// @exclude		http://pokemoncreed.net/index*
+// @exclude		https://pokemoncreed.net/forums*
+// @exclude		http://pokemoncreed.net/forums*
+// @run-at		document-end
 // ==/UserScript==
 
 if (document.getElementsByClassName("contentcontent")[0] != undefined) {

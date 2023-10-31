@@ -1,15 +1,14 @@
 // ==UserScript==
-// @name           Live Clock
-// @author         SyndiShanX
-// @include        https://pokemoncreed.net/*
-// @include        http://pokemoncreed.net/*
-// @exclude        https://pokemoncreed.net/login*
-// @exclude        http://pokemoncreed.net/login*
-// @exclude        https://pokemoncreed.net/index*
-// @exclude        http://pokemoncreed.net/index*
-// @exclude        https://pokemoncreed.net/forums*
-// @exclude        http://pokemoncreed.net/forums*
-// @version        1.15
+// @name			Live Clock
+// @author		SyndiShanX
+// @include		https://pokemoncreed.net/*
+// @include		http://pokemoncreed.net/*
+// @exclude		https://pokemoncreed.net/login*
+// @exclude		http://pokemoncreed.net/login*
+// @exclude		https://pokemoncreed.net/index*
+// @exclude		http://pokemoncreed.net/index*
+// @exclude		https://pokemoncreed.net/forums*
+// @exclude		http://pokemoncreed.net/forums*
 // ==/UserScript==
 
 if (document.getElementsByTagName('font').length == 1) {

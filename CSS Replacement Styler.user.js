@@ -1,19 +1,23 @@
 // ==UserScript==
-// @name           CSS Replacement Styler
-// @author         SyndiShanX
-// @include        https://pokemoncreed.net/login*
-// @include        http://pokemoncreed.net/login*
-// @include        https://pokemoncreed.net/index*
-// @include        http://pokemoncreed.net/index*
-// @include        https://pokemoncreed.net/forums*
-// @include        http://pokemoncreed.net/forums*
-// @include        https://pokemoncreed.net/clickme.php
-// @include        http://pokemoncreed.net/clickme.php
-// @run-at         document-body
-// @version        1.15
+// @name			CSS Replacement Styler
+// @author		SyndiShanX
+// @include		https://pokemoncreed.net/login*
+// @include		http://pokemoncreed.net/login*
+// @include		https://pokemoncreed.net/index*
+// @include		http://pokemoncreed.net/index*
+// @include		https://pokemoncreed.net/forums*
+// @include		http://pokemoncreed.net/forums*
+// @include		https://pokemoncreed.net/clickme.php
+// @include		http://pokemoncreed.net/clickme.php
+// @run-at		document-body
 // ==/UserScript==
 
 var synCSS = `
+input, input.text, select, textarea {
+  background-color: #1a1a1a!important;
+  border: 1px solid #000000!important;
+  color: white!important;
+}
 input.text {
   width: 200px
 }

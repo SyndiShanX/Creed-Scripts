@@ -1,10 +1,9 @@
 // ==UserScript==
-// @name           Battle Beautifier
-// @author         SyndiShanX
-// @include        https://pokemoncreed.net/battle.php?*
-// @include        http://pokemoncreed.net/battle.php?*
-// @run-at         document-end
-// @version        1.15
+// @name			Battle Beautifier
+// @author		SyndiShanX
+// @include		https://pokemoncreed.net/battle.php?*
+// @include		http://pokemoncreed.net/battle.php?*
+// @run-at		document-end
 // ==/UserScript==
 function numberWithCommas(x) {
 	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");

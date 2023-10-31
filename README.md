@@ -1,8 +1,8 @@
 A Collection of Scripts that modify the Layout/Style of Creed
 
-Made by: SyndiShanX#4620
+Made by SyndiShanX
 
-Should be safe, only word I got when asking about it was "you do you man" -Kray
+Should be safe, the only word I got when asking about it was "you do you man" -Kray
 
 Do Note that most of these are WIPs and could Change Often, Redownload before Creating an Issue
 

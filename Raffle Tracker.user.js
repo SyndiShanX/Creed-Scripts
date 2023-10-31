@@ -1,12 +1,11 @@
 // ==UserScript==
-// @name           Raffle Tracker
-// @author         SyndiShanX
-// @include        https://pokemoncreed.net/raffle.php*
-// @include        http://pokemoncreed.net/raffle.php*
-// @grant          GM.getValue
-// @grant          GM.setValue
-// @grant          GM.deleteValue
-// @version        1.15
+// @name			Raffle Tracker
+// @author		SyndiShanX
+// @include		https://pokemoncreed.net/raffle.php*
+// @include		http://pokemoncreed.net/raffle.php*
+// @grant			GM.getValue
+// @grant			GM.setValue
+// @grant			GM.deleteValue
 // ==/UserScript==
 
 (async () => {

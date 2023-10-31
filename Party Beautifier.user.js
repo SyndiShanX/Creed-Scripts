@@ -1,16 +1,15 @@
 // ==UserScript==
-// @name           Party Beautifier
-// @author         SyndiShanX
-// @include        https://pokemoncreed.net/*
-// @include        http://pokemoncreed.net/*
-// @exclude        https://pokemoncreed.net/login*
-// @exclude        http://pokemoncreed.net/login*
-// @exclude        https://pokemoncreed.net/index*
-// @exclude        http://pokemoncreed.net/index*
-// @exclude        https://pokemoncreed.net/forums*
-// @exclude        http://pokemoncreed.net/forums*
-// @version        1.15
-// @run-at         document-idle
+// @name			Party Beautifier
+// @author		SyndiShanX
+// @include		https://pokemoncreed.net/*
+// @include		http://pokemoncreed.net/*
+// @exclude		https://pokemoncreed.net/login*
+// @exclude		http://pokemoncreed.net/login*
+// @exclude		https://pokemoncreed.net/index*
+// @exclude		http://pokemoncreed.net/index*
+// @exclude		https://pokemoncreed.net/forums*
+// @exclude		http://pokemoncreed.net/forums*
+// @run-at		document-idle
 // ==/UserScript==
 
 var i

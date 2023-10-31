@@ -1,15 +1,14 @@
 // ==UserScript==
-// @name           Battle Stats Tracker
-// @author         SyndiShanX
-// @include        https://pokemoncreed.net/battle.php*
-// @include        http://pokemoncreed.net/battle.php*
-// @include        https://pokemoncreed.net/clanrewards.php*
-// @include        http://pokemoncreed.net/clanrewards.php*
-// @grant          GM.getValue
-// @grant          GM.setValue
-// @grant          GM.deleteValue
-// @version        1.15
-// @run-at         document-end
+// @name			Battle Stats Tracker
+// @author		SyndiShanX
+// @include		https://pokemoncreed.net/battle.php*
+// @include		http://pokemoncreed.net/battle.php*
+// @include		https://pokemoncreed.net/clanrewards.php*
+// @include		http://pokemoncreed.net/clanrewards.php*
+// @grant			GM.getValue
+// @grant			GM.setValue
+// @grant			GM.deleteValue
+// @run-at		document-end
 // ==/UserScript==
 
 function numberWithCommas(x) {

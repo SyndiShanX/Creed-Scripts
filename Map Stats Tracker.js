@@ -1,13 +1,12 @@
 // ==UserScript==
-// @name           Map Stats Tracker
-// @author         SyndiShanX
-// @include        https://pokemoncreed.net/map.php*
-// @include        http://pokemoncreed.net/map.php*
-// @grant          GM.getValue
-// @grant          GM.setValue
-// @grant          GM.deleteValue
-// @version        1.15
-// @run-at         document-end
+// @name			Map Stats Tracker
+// @author		SyndiShanX
+// @include		https://pokemoncreed.net/map.php*
+// @include		http://pokemoncreed.net/map.php*
+// @grant			GM.getValue
+// @grant			GM.setValue
+// @grant			GM.deleteValue
+// @run-at		document-end
 // ==/UserScript==
 
 labels = document.getElementsByTagName('label')

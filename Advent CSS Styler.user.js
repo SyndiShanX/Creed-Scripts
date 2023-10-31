@@ -1,10 +1,9 @@
 // ==UserScript==
-// @name           Advent CSS Styler
-// @author         SyndiShanX
-// @include        https://pokemoncreed.net/advent.php*
-// @include        http://pokemoncreed.net/advent.php*
-// @run-at         document-body
-// @version        1.15
+// @name			Advent CSS Styler
+// @author		SyndiShanX
+// @include		https://pokemoncreed.net/advent.php*
+// @include		http://pokemoncreed.net/advent.php*
+// @run-at		document-body
 // ==/UserScript==
 
 var synCSS = `
