@@ -5,6 +5,7 @@
 // @include		http://pokemoncreed.net/battle.php*
 // @include		https://pokemoncreed.net/clanrewards.php*
 // @include		http://pokemoncreed.net/clanrewards.php*
+// @include		https://pokemoncreed.net/resetStats*
 // @grant			GM.getValue
 // @grant			GM.setValue
 // @grant			GM.deleteValue
@@ -13,6 +14,20 @@
 
 function numberWithCommas(x) {
 	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+function resetStats() {
+  (async () => {
+    await GM.setValue('TotalBattles', 0)
+    await GM.setValue('ClanCredits', 0)
+    await GM.setValue('TotalClanCredits', 0)
+    await GM.setValue('EXP', 0)
+    await GM.setValue('Cash', 0)
+    await GM.setValue('DamageDealt', 0)
+    await GM.setValue('DamageTaken', 0)
+  })();
+}
+if (window.location.pathname == '/resetStats') {
+  resetStats()
 }
 battleID = '00000'
 updatedClanCredits = false
