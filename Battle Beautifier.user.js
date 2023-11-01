@@ -140,7 +140,7 @@ if (window.location.pathname == "/battle.php") {
       for (let i = 0; i < battleTextPlayerSplit.length; i++) {
 			  // Append Effectiveness
 				if (battleTextPlayerSplit[i].search('effect') != -1) {
-					battleTextPlayerFinal = battleTextPlayerFinal + ' (' + battleTextPlayerSplit[i] + ')'
+					battleTextPlayerFinal = battleTextPlayerFinal + ' (' + battleTextPlayerSplit[i].replaceAll('It had no effect on the pokemon', 'It had no effect') + ')'
 				}
       }
       for (let i = 0; i < battleTextPlayerSplit.length; i++) {
@@ -181,7 +181,7 @@ if (window.location.pathname == "/battle.php") {
       for (let i = 0; i < battleTextEnemySplit.length; i++) {
 			  // Append Effectiveness
 				if (battleTextEnemySplit[i].search('effect') != -1) {
-					battleTextEnemyFinal = battleTextEnemyFinal + ' (' + battleTextEnemySplit[i] + ')'
+					battleTextEnemyFinal = battleTextEnemyFinal + ' (' + battleTextEnemySplit[i].replaceAll('It had no effect on the pokemon', 'It had no effect') + ')'
 				}
       }
       for (let i = 0; i < battleTextEnemySplit.length; i++) {
@@ -197,7 +197,7 @@ if (window.location.pathname == "/battle.php") {
 
 		// Beautify Rewards
 		if (battleTextRewards != '') {
-			if (battleTextContinueButton != '' || battleText.search('experience due to EXP. Lock') == -1) {
+			if (battleText.search('gained') != -1) {
 				battleRewardEXP = battleTextRewards.split('gained')[1].split('experience')[0].trim()
 				battleRewardCash = battleTextRewards.split('$')[1].split('.')[0].trim()
 				battleRewardClanCredits = Math.round(parseInt(battleRewardEXP.replace(/,/g, '')) / 20.194682)
