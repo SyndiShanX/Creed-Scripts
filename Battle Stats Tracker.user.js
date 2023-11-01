@@ -42,11 +42,11 @@ function statsLoop() {
         var battleDamageTakenStr = '' + battleDamageTaken + ''
         var battleDamageTakenSaved = parseInt(battleDamageTakenStr.trim().replace(/,/g, ''))
         if (window.location.pathname == '/battle.php') {
-          battleText = document.getElementsByClassName("bord")[0].innerText
-          if (battleText.search('defeated') != -1) {
+          battleInnerText = document.getElementsByClassName("bord")[0].innerText
+          if (battleInnerText.search('defeated') != -1 || battleInnerText.search('fainted') != -1) {
             battleTotal = parseInt(battleTotal + 1)
             await GM.setValue('TotalBattles', battleTotal)
-            battleClanCredits0 = battleText.split(', and recieved ')[1].split(' (Capped)')[0]
+            battleClanCredits0 = battleInnerText.split('and received ')[1].split(' (Capped)')[0]
             battleClanCredits1 = parseInt(battleClanCredits0.trim().replace(/,/g, ''))
             if (battleClanCredits1 > 409026) {
               battleClanPoints2 = 409026
@@ -60,33 +60,33 @@ function statsLoop() {
             await GM.setValue('TotalClanCredits', battleClanCreditsFinal)
             let battleClanCredits = await GM.getValue('TotalClanCredits', 0);
 
-            if (battleText.split('recieved ')[1].split(' XP')[0] != null) {
-              battleEXP0 = battleText.split('recieved ')[1].split(' XP')[0]
+            if (battleInnerText.split('received ')[1].split(' EXP')[0] != null) {
+              battleEXP0 = battleInnerText.split('received ')[1].split(' EXP')[0]
               battleEXP1 = parseInt(battleEXP0.trim().replace(/,/g, ''))
               battleEXPFinal = parseInt(battleEXPSaved + battleEXP1)
               battleEXPFinal = numberWithCommas(battleEXPFinal)
               await GM.setValue('EXP', battleEXPFinal)
               let battleEXP = await GM.getValue('EXP', 0);
             }
-            if (battleText.split('XP, $')[1].split(', and')[0] != null) {
-              battleCash0 = battleText.split('XP, $')[1].split(', and')[0]
+            if (battleInnerText.split('EXP, $')[1].split(', and')[0] != null) {
+              battleCash0 = battleInnerText.split('EXP, $')[1].split(', and')[0]
               battleCash1 = parseInt(battleCash0.trim().replace(/,/g, ''))
               battleCashFinal = parseInt(battleCashSaved + battleCash1)
               battleCashFinal = numberWithCommas(battleCashFinal)
               await GM.setValue('Cash', battleCashFinal)
               let battleCash = await GM.getValue('Cash', 0);
             }
-            if (battleText.split('for ')[1].split(' damage')[1] != null) {
-              battleDamageDealt0 = battleText.split('for ')[1].split(' damage')[0]
+            if (battleInnerText.split('for ')[1].split(' damage!')[0] != null) {
+              battleDamageDealt0 = battleInnerText.split('for ')[1].split(' damage')[0]
               battleDamageDealt1 = parseInt(battleDamageDealt0.trim().replace(/,/g, ''))
               battleDamageDealtFinal = parseInt(battleDamageDealtSaved + battleDamageDealt1)
               battleDamageDealtFinal = numberWithCommas(battleDamageDealtFinal)
               await GM.setValue('DamageDealt', battleDamageDealtFinal)
               let battleDamageDealt = await GM.getValue('DamageDealt', 0);
             }
-            if (battleText.split('for ')[2] != undefined) {
-              if (battleText.split('for ')[2].split(' damage')[0] != null) {
-                battleDamageTaken0 = battleText.split('for ')[2].split(' damage')[0]
+            if (battleInnerText.split('for ')[2] != undefined) {
+              if (battleInnerText.split('for ')[2].split(' damage')[0] != null) {
+                battleDamageTaken0 = battleInnerText.split('for ')[2].split(' damage')[0]
                 battleDamageTaken1 = parseInt(battleDamageTaken0.trim().replace(/,/g, ''))
                 battleDamageTakenFinal = parseInt(battleDamageTakenSaved + battleDamageTaken1)
                 battleDamageTakenFinal = numberWithCommas(battleDamageTakenFinal)
@@ -94,9 +94,9 @@ function statsLoop() {
                 let battleDamageTaken = await GM.getValue('DamageTaken', 0);
               }
             }
-          } else if (battleText.search('defeated') == -1 && battleText.search('damage') != -1) {
-            if (battleText.split('for ')[1].split(' damage')[1] != null) {
-              battleDamageDealt0 = battleText.split('for ')[1].split(' damage')[0]
+          } else if (battleInnerText.search('defeated') == -1 && battleInnerText.search('damage') != -1) {
+            if (battleInnerText.split('for ')[1].split(' damage')[0] != null) {
+              battleDamageDealt0 = battleInnerText.split('for ')[1].split(' damage')[0]
               battleDamageDealt1 = parseInt(battleDamageDealt0.trim().replace(/,/g, ''))
               battleDamageDealtFinal = parseInt(battleDamageDealtSaved + battleDamageDealt1)
               battleDamageDealtFinal = numberWithCommas(battleDamageDealtFinal)
@@ -104,10 +104,10 @@ function statsLoop() {
               let battleDamageDealt = await GM.getValue('DamageDealt', 0);
             }
           }
-          if (battleText.search('defeated') == -1 && battleText.search('hit your') != -1) {
-            if (battleText.split('for ')[2] != undefined) {
-              if (battleText.split('for ')[2].split(' damage')[0] != null) {
-                battleDamageTaken0 = battleText.split('for ')[2].split(' damage')[0]
+          if (battleInnerText.search('defeated') == -1 && battleInnerText.search('hit your') != -1) {
+            if (battleInnerText.split('for ')[2] != undefined) {
+              if (battleInnerText.split('for ')[2].split(' damage')[0] != null) {
+                battleDamageTaken0 = battleInnerText.split('for ')[2].split(' damage')[0]
                 battleDamageTaken1 = parseInt(battleDamageTaken0.trim().replace(/,/g, ''))
                 battleDamageTakenFinal = parseInt(battleDamageTakenSaved + battleDamageTaken1)
                 battleDamageTakenFinal = numberWithCommas(battleDamageTakenFinal)
@@ -118,8 +118,8 @@ function statsLoop() {
           }
 
           if (window.location.search.split('?c=')[1] != null){
-            battleTextMe = battleText.split('\n\n')[0]
-            battleTextEnemy = battleText.split('\n\n')[1]
+            battleTextMe = battleInnerText.split('\n\n')[0]
+            battleTextEnemy = battleInnerText.split('\n\n')[1]
             if (battleTextMe.search('for') != -1 && battleTextMe.search('damage') != -1) {
               if (battleTextMe.split('for ')[1].split(' damage')[1] != null) {
                 battleDamageDealt0 = battleTextMe.split('for ')[1].split(' damage')[0]
