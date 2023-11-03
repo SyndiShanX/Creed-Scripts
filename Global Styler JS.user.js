@@ -53,7 +53,7 @@ synRightMenu3 = '<div class="menu7"><ul>' + synMenuStart + synHTML8[0] + "Other"
 synRightMenu4 = synRightMenu3.split('Staff List</a></li>\n')[1].split('\n')[0]
 synRightMenu3 = synRightMenu3.split('Staff List</a></li>\n')[0] + 'Staff List</a></li>\n' + synRightMenu3.split('Staff List</a></li>\n')[1].split('My Profile</a></li>\n')[1]
 synRightMenu5 = '<div class="menu8"><ul>' + synMenuStart + synHTML9[0] + "Account/Clan</li>" + synHTML7[1].split('"header">Your Clan</li>')[1] + synHTML9[1]
-synRightMenu5 = synRightMenu5.split(']')[0] + ']</a></li>\n' + synRightMenu4 + synRightMenu5.split(']')[1]
+synRightMenu5 = synRightMenu5.split('</a></li>\n</ul>')[0] + '</a></li>' + synRightMenu4 + '\n</ul>' + synRightMenu5.split('</a></li>\n</ul>')[1]
 synRightMenu5 = synRightMenu5.split("\n\n")
 synRightMenu = synRightMenu1 + "\n\n" + synRightMenu2 + "\n\n" + synRightMenu3 + "\n\n" + synRightMenu5
 
