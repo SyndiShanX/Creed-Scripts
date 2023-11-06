@@ -26,7 +26,7 @@ function resetStats() {
     await GM.setValue('DamageTaken', 0)
   })();
 }
-if (window.location.pathname == '/resetStats') {
+if (window.location.pathname.toLowerCase() == '/resetstats') {
   resetStats()
 }
 battleID = '00000'
