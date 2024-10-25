@@ -9,7 +9,7 @@
 // @exclude   http://pokemoncreed.net/index*
 // @exclude   https://pokemoncreed.net/forums*
 // @exclude   http://pokemoncreed.net/forums*
-// @run-at    document-end
+// @run-at    document-idle
 // ==/UserScript==
 
 // Snow
@@ -21,18 +21,20 @@
 // Updated (8/19/20) synMenu3 was broken server-side
 // Updated (12/1/20) synMenu3 was fixed server-side --synHTML3Fix = synHTML3[0].split("</a></li>\n\n<li class=")--
 // Updated (6/23/24) Tools Section was moved to the Left Sidemenu
+// Updated (10/24/24) Commented Menus were Added (Line 30, Line 48)
+// Updated (11/9/24) Reverted Double Line Break Fix (Line 36 + 37)
 // Left Menu
 synMenuEnd = "</a></li></ul></div>"
 synMenuStart = '<li class='
 synHTML1 = document.getElementsByClassName("leftmenu")[0].outerHTML
 synHTML2 = synHTML1.split("<ul>")
-synHTML3 = synHTML2[1].split("</a></li>\n<li class=")
+synHTML3 = synHTML2[1].replaceAll('<!-- ', '').replaceAll(' -->', '').replaceAll('\x3C!-- ', '').replaceAll('\n\n\n', '\n').replaceAll('\n\n', '\n').split("</a></li>\n<li class=")
 
 synHTML8 = synHTML1.split("Tools")[1].split('\n<li class')[0]
 
 synLeftMenu1 = '<div class="menu1"><ul>' + synHTML3[0] + synMenuEnd
-synLeftMenu1 = synLeftMenu1.split("\n\n")
-synLeftMenu1 = synLeftMenu1[0] + "\n" + synLeftMenu1[1]
+//synLeftMenu1 = synLeftMenu1.split("\n\n")
+//synLeftMenu1 = synLeftMenu1[0] + "\n" + synLeftMenu1[1]
 synLeftMenu2 = '<div class="menu2"><ul>' + synMenuStart + synHTML3[1] + synMenuEnd
 synLeftMenu3 = '<div class="menu3"><ul>' + synMenuStart + synHTML3[2] + synMenuEnd
 synLeftMenu3 = synLeftMenu3.split("Dep. Store</a></li>")[0] + 'Dep. Store</a></li>\n<li><a href="sell.php"' + synLeftMenu3.split('<li><a href="sell.php"')[1]
@@ -44,7 +46,7 @@ synHTML4 = document.getElementsByClassName("rightmenu")[0].outerHTML
 synHTML5 = synHTML4.split('<li class="header">')
 synHTML6 = synHTML5[3] + '<li class="header">' + synHTML5[4] + '<li class="header">' + synHTML5[5] + '<li class="header">' + synHTML5[6] + '<li class="header">' + synHTML5[7]
 synHTML6 = synHTML6.replace('\n\n', '\n')
-synHTML7 = synHTML6.split("</a></li>\n<li class=")
+synHTML7 = synHTML6.replaceAll('<!-- ', '').replaceAll(' -->', '').replaceAll('\x3C!-- ', '').replaceAll('\n\n\n', '\n').replaceAll('\n\n', '\n').split("</a></li>\n<li class=")
 synHTML9 = synHTML3[5].split("Account</li>")
 
 synRightMenu1 = '<div class="menu5"><ul><li class="header">' + synHTML7[0] + synMenuEnd
