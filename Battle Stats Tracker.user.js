@@ -275,8 +275,8 @@ function statsLoop() {
       customContent.className = 'footer'
       customTable.className = 'battlefast'
       customContent.style = 'background: rgba(0, 0, 0, 0.7); color: #fff; font: 12px Tahoma,Arial,Hevetica,Sans-serif;'
-      body.insertBefore(customTitle, body.childNodes[20])
-      body.insertBefore(customContent, body.childNodes[21])
+      body.insertBefore(customTitle, body.childNodes[44])
+      body.insertBefore(customContent, body.childNodes[45])
       customHTML0 = document.getElementsByClassName('footer')[0].innerHTML
       document.getElementsByClassName('footer')[0].innerHTML = '<br>' + customHTML0 + '<br>'
     }
