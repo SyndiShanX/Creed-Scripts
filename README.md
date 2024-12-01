@@ -4,9 +4,9 @@ Made by SyndiShanX
 
 Should be safe, the only word I got when asking about it was "you do you man" -Kray
 
-Do Note that most of these are WIPs and could Change Often, Redownload before Creating an Issue
+Do Note that most of these are WIP and could Change Often, redownload before Creating an Issue
 
-If there are any bugs/mistakes Create an Issue and I'll try to Fix it
+If there are any bugs/mistakes, Create an Issue and I'll try to Fix it
 
 Installation:
 Create a new Script in TamperMonkey or similar, then paste the Script in and Save
@@ -29,7 +29,6 @@ Some Scripts can be used in any Combination:
 
 ```
 Advent CSS Styler
-Map Stats Tracker
 Advent Tracker
 Global Creed Remover
 Live Clock
