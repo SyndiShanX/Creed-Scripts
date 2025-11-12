@@ -1,38 +1,46 @@
 // ==UserScript==
-// @name			Live Clock
-// @author		SyndiShanX
-// @include		https://pokemoncreed.net/*
-// @include		http://pokemoncreed.net/*
-// @exclude		https://pokemoncreed.net/login*
-// @exclude		http://pokemoncreed.net/login*
-// @exclude		https://pokemoncreed.net/index*
-// @exclude		http://pokemoncreed.net/index*
-// @exclude		https://pokemoncreed.net/forums*
-// @exclude		http://pokemoncreed.net/forums*
+// @name          Creed Live Clock
+// @description   null
+// @version       v1.0
+// @author        SyndiShanX
+// @include       https://pokemoncreed.net/*
+// @include       http://pokemoncreed.net/*
+// @exclude       https://pokemoncreed.net/login*
+// @exclude       http://pokemoncreed.net/login*
+// @exclude       https://pokemoncreed.net/index*
+// @exclude       http://pokemoncreed.net/index*
+// @exclude       https://pokemoncreed.net/forums*
+// @exclude       http://pokemoncreed.net/forums*
 // ==/UserScript==
 
+if (document.getElementsByTagName('link')[0].href == 'https://pokemoncreed.net/s5.css?v=4') {
+  document.getElementsByTagName('link')[0].href = 'https://pokemoncreed.net/s4.css?v=4'
+}
+
+var clockElement = undefined
+
 if (document.getElementsByTagName('font').length == 1) {
-  var clockElement = 0
+  clockElement = 0
 } else if (document.getElementsByTagName('font').length == 2) {
-  var clockElement = 1
+  clockElement = 1
 } else if (document.getElementsByTagName('font').length == 3) {
-  var clockElement = 2
+  clockElement = 2
 } else if (document.getElementsByTagName('font').length == 4) {
-  var clockElement = 3
+  clockElement = 3
 } else if (document.getElementsByTagName('font').length == 5) {
-  var clockElement = 4
+  clockElement = 4
 } else if (document.getElementsByTagName('font').length == 6) {
-  var clockElement = 5
+  clockElement = 5
 } else if (document.getElementsByTagName('font').length == 7) {
-  var clockElement = 6
+  clockElement = 6
 } else if (document.getElementsByTagName('font').length == 8) {
-  var clockElement = 7
+  clockElement = 7
 } else if (document.getElementsByTagName('font').length == 9) {
-  var clockElement = 8
+  clockElement = 8
 } else if (document.getElementsByTagName('font').length == 10) {
-  var clockElement = 9
+  clockElement = 9
 } else if (document.getElementsByTagName('font').length == 11) {
-  var clockElement = 10
+  clockElement = 10
 }
 
 document.getElementsByTagName('font')[clockElement].className = "clock"
@@ -73,8 +81,8 @@ function startTime() {
   var m = today.getMinutes();
   var s = today.getSeconds();
 
-  //h = h + 5 // Change Local Timezone to Creed Timezone Daylight Savings
-  h = h + 4 // Change Local Timezone to Creed Timezone No Daylight Savings
+  h = h + 5 // Change Local Timezone to Creed Timezone Daylight Savings
+  //h = h + 4 // Change Local Timezone to Creed Timezone No Daylight Savings
 
   if (h >= 24) {
     h = h - 24
@@ -98,7 +106,7 @@ function clanTime() {
   setInterval(function(){
 
   var current_date = new Date();
-  var yearDiff =  (current_date.getYear() - birth_date.getYear());
+  var yearDiff = (current_date.getYear() - birth_date.getYear());
   var monthDiff = (current_date.getMonth() - birth_date.getMonth());
   var dayDiff = (current_date.getDate() - birth_date.getDate());
   var hourDiff = (current_date.getHours() - birth_date.getHours());
@@ -107,12 +115,12 @@ function clanTime() {
   var weekDiff = 0
 
   // Fix negative values
-  
+
   if (monthDiff < 0) {
     yearDiff = yearDiff - 1
     monthDiff = monthDiff + 12
   }
-    
+
   if (weekDiff < 0) {
     monthDiff = monthDiff - 1
     weekDiff = weekDiff + 4
@@ -128,27 +136,27 @@ function clanTime() {
     weekDiff = weekDiff + 3
     dayDiff = dayDiff + 7
   }
-    
+
   while (dayDiff >= 7) {
     dayDiff = dayDiff - 7
     weekDiff = weekDiff + 1
   }
-  
+
   while (weekDiff >= 4) {
     weekDiff = weekDiff - 4
     monthDiff = monthDiff + 1
   }
-    
+
   if (secDiff < 0) {
     minDiff = minDiff - 1
     secDiff = secDiff + 60
   }
-  
+
   if (minDiff < 0) {
     hourDiff = hourDiff - 1
     minDiff = minDiff + 60
   }
-  
+
   if (hourDiff < 0) {
     dayDiff = dayDiff - 1
     hourDiff = hourDiff + 24
@@ -183,44 +191,44 @@ function clanTime() {
   } else if (yearDiff == 1) {
     ageYears = yearDiff + ' year, '
   }
-    
+
   if (monthDiff != 1) {
     ageMonths = monthDiff + ' months, '
   } else if (monthDiff == 1) {
     ageMonths = monthDiff + ' month, '
   }
-    
+
   if (weekDiff != 1) {
     ageWeeks = weekDiff + ' weeks, '
   } else if (weekDiff == 1) {
     ageWeeks = weekDiff + ' week, '
   }
-    
+
   if (dayDiff != 1) {
     ageDays = dayDiff + ' days, '
   } else if (dayDiff == 1) {
     ageDays = dayDiff + ' day, '
   }
-    
+
   if (hourDiff != 1) {
     ageHours = hourDiff + ' hours, '
   } else if (hourDiff == 1) {
     ageHours = hourDiff + ' hour, '
   }
-    
+
   if (minDiff != 1) {
     ageMinutes = minDiff + ' minutes, and '
   } else if (minDiff == 1) {
     ageMinutes = minDiff + ' minute, and '
   }
-    
+
   if (secDiff != 1) {
     ageSeconds = secDiff + ' seconds'
   } else if (secDiff == 1) {
     ageSeconds = secDiff + ' second'
   }
 
-  document.getElementsByClassName('contentcontent')[0].getElementsByTagName('td')[2].textContent = 
+  document.getElementsByClassName('contentcontent')[0].getElementsByTagName('td')[2].textContent =
   ageYears + ageMonths + ageWeeks + ageDays + ageHours + ageMinutes + ageSeconds;
 
   }, 500);

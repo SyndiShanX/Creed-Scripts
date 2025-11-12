@@ -1,20 +1,23 @@
 // ==UserScript==
-// @name			Battle Stats Tracker
-// @author		SyndiShanX
-// @include		https://pokemoncreed.net/battle.php*
-// @include		http://pokemoncreed.net/battle.php*
-// @include		https://pokemoncreed.net/clanrewards.php*
-// @include		http://pokemoncreed.net/clanrewards.php*
-// @include		https://pokemoncreed.net/resetStats*
-// @grant			GM.getValue
-// @grant			GM.setValue
-// @grant			GM.deleteValue
-// @run-at		document-end
+// @name          Creed Battle Stats Tracker
+// @description   null
+// @version       v1.0
+// @author        SyndiShanX
+// @include       https://pokemoncreed.net/battle.php*
+// @include       http://pokemoncreed.net/battle.php*
+// @include       https://pokemoncreed.net/clanrewards.php*
+// @include       http://pokemoncreed.net/clanrewards.php*
+// @include       https://pokemoncreed.net/resetStats*
+// @grant         GM.getValue
+// @grant         GM.setValue
+// @grant         GM.deleteValue
+// @run-at        document-end
 // ==/UserScript==
 
 function numberWithCommas(x) {
 	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
+
 function resetStats() {
   (async () => {
     await GM.setValue('TotalBattles', 0)
@@ -26,24 +29,27 @@ function resetStats() {
     await GM.setValue('DamageTaken', 0)
   })();
 }
+
 if (window.location.pathname.toLowerCase() == '/resetstats') {
   resetStats()
 }
-battleID = '00000'
-updatedClanCredits = false
+
+var battleID = '00000'
+var updatedClanCredits = false
+
 function statsLoop() {
   (async () => {
     if (document.getElementsByClassName('battleText')[0] != null) {
-      previousBattleID = battleID
+      var previousBattleID = battleID
       battleID = window.location.search.split('=')[1]
       if (battleID != previousBattleID) {
         let battleTotal = await GM.getValue('TotalBattles', 0);
         let battleClanCredits = await GM.getValue('TotalClanCredits', 0);
         var battleClanCreditsStr = '' + battleClanCredits + ''
-        battleClanCreditsSaved = parseInt(battleClanCreditsStr.trim().replace(/,/g, ''))
+        var battleClanCreditsSaved = parseInt(battleClanCreditsStr.trim().replace(/,/g, ''))
         let currentClanCredits = await GM.getValue('ClanCredits', 0);
         var currentClanCreditsStr = '' + currentClanCredits + ''
-        currentClanCreditsSaved = parseInt(currentClanCreditsStr.trim().replace(/,/g, ''))
+        var currentClanCreditsSaved = parseInt(currentClanCreditsStr.trim().replace(/,/g, ''))
         let battleEXP = await GM.getValue('EXP', 0);
         var battleEXPStr = '' + battleEXP + ''
         var battleEXPSaved = parseInt(battleEXPStr.trim().replace(/,/g, ''))
@@ -57,53 +63,53 @@ function statsLoop() {
         var battleDamageTakenStr = '' + battleDamageTaken + ''
         var battleDamageTakenSaved = parseInt(battleDamageTakenStr.trim().replace(/,/g, ''))
         if (window.location.pathname == '/battle.php') {
-          battleInnerText = document.getElementsByClassName("bord")[0].innerText
+          var battleInnerText = document.getElementsByClassName("bord")[0].innerText
           if (battleInnerText.search('defeated') != -1 || battleInnerText.search('fainted') != -1) {
             battleTotal = parseInt(battleTotal + 1)
             await GM.setValue('TotalBattles', battleTotal)
-            battleClanCredits0 = battleInnerText.split('and received ')[1].split(' (Capped)')[0]
-            battleClanCredits1 = parseInt(battleClanCredits0.trim().replace(/,/g, ''))
+            var battleClanCredits0 = battleInnerText.split('and received ')[1].split(' (Capped)')[0]
+            var battleClanCredits1 = parseInt(battleClanCredits0.trim().replace(/,/g, ''))
             if (battleClanCredits1 > 409026) {
-              battleClanPoints2 = 409026
+              var battleClanPoints2 = 409026
             }
-            currentClanCreditsFinal = parseInt(currentClanCreditsSaved + battleClanPoints2)
+            var currentClanCreditsFinal = parseInt(currentClanCreditsSaved + battleClanPoints2)
             currentClanCreditsFinal = numberWithCommas(currentClanCreditsFinal)
             await GM.setValue('ClanCredits', currentClanCreditsFinal)
             let currentClanCredits = await GM.getValue('ClanCredits', 0);
-            battleClanCreditsFinal = parseInt(battleClanCreditsSaved + battleClanPoints2)
+            var battleClanCreditsFinal = parseInt(battleClanCreditsSaved + battleClanPoints2)
             battleClanCreditsFinal = numberWithCommas(battleClanCreditsFinal)
             await GM.setValue('TotalClanCredits', battleClanCreditsFinal)
             let battleClanCredits = await GM.getValue('TotalClanCredits', 0);
 
             if (battleInnerText.split('received ')[1].split(' EXP')[0] != null) {
-              battleEXP0 = battleInnerText.split('received ')[1].split(' EXP')[0]
-              battleEXP1 = parseInt(battleEXP0.trim().replace(/,/g, ''))
-              battleEXPFinal = parseInt(battleEXPSaved + battleEXP1)
+              var battleEXP0 = battleInnerText.split('received ')[1].split(' EXP')[0]
+              var battleEXP1 = parseInt(battleEXP0.trim().replace(/,/g, ''))
+              var battleEXPFinal = parseInt(battleEXPSaved + battleEXP1)
               battleEXPFinal = numberWithCommas(battleEXPFinal)
               await GM.setValue('EXP', battleEXPFinal)
               let battleEXP = await GM.getValue('EXP', 0);
             }
             if (battleInnerText.split('EXP, $')[1].split(', and')[0] != null) {
-              battleCash0 = battleInnerText.split('EXP, $')[1].split(', and')[0]
-              battleCash1 = parseInt(battleCash0.trim().replace(/,/g, ''))
-              battleCashFinal = parseInt(battleCashSaved + battleCash1)
+              var battleCash0 = battleInnerText.split('EXP, $')[1].split(', and')[0]
+              var battleCash1 = parseInt(battleCash0.trim().replace(/,/g, ''))
+              var battleCashFinal = parseInt(battleCashSaved + battleCash1)
               battleCashFinal = numberWithCommas(battleCashFinal)
               await GM.setValue('Cash', battleCashFinal)
               let battleCash = await GM.getValue('Cash', 0);
             }
             if (battleInnerText.split('for ')[1].split(' damage!')[0] != null) {
-              battleDamageDealt0 = battleInnerText.split('for ')[1].split(' damage')[0]
-              battleDamageDealt1 = parseInt(battleDamageDealt0.trim().replace(/,/g, ''))
-              battleDamageDealtFinal = parseInt(battleDamageDealtSaved + battleDamageDealt1)
+              var battleDamageDealt0 = battleInnerText.split('for ')[1].split(' damage')[0]
+              var battleDamageDealt1 = parseInt(battleDamageDealt0.trim().replace(/,/g, ''))
+              var battleDamageDealtFinal = parseInt(battleDamageDealtSaved + battleDamageDealt1)
               battleDamageDealtFinal = numberWithCommas(battleDamageDealtFinal)
               await GM.setValue('DamageDealt', battleDamageDealtFinal)
               let battleDamageDealt = await GM.getValue('DamageDealt', 0);
             }
             if (battleInnerText.split('for ')[2] != undefined) {
               if (battleInnerText.split('for ')[2].split(' damage')[0] != null) {
-                battleDamageTaken0 = battleInnerText.split('for ')[2].split(' damage')[0]
-                battleDamageTaken1 = parseInt(battleDamageTaken0.trim().replace(/,/g, ''))
-                battleDamageTakenFinal = parseInt(battleDamageTakenSaved + battleDamageTaken1)
+                var battleDamageTaken0 = battleInnerText.split('for ')[2].split(' damage')[0]
+                var battleDamageTaken1 = parseInt(battleDamageTaken0.trim().replace(/,/g, ''))
+                var battleDamageTakenFinal = parseInt(battleDamageTakenSaved + battleDamageTaken1)
                 battleDamageTakenFinal = numberWithCommas(battleDamageTakenFinal)
                 await GM.setValue('DamageTaken', battleDamageTakenFinal)
                 let battleDamageTaken = await GM.getValue('DamageTaken', 0);
@@ -133,8 +139,8 @@ function statsLoop() {
           }
 
           if (window.location.search.split('?c=')[1] != null){
-            battleTextMe = battleInnerText.split('\n\n')[0]
-            battleTextEnemy = battleInnerText.split('\n\n')[1]
+            var battleTextMe = battleInnerText.split('\n\n')[0]
+            var battleTextEnemy = battleInnerText.split('\n\n')[1]
             if (battleTextMe.search('for') != -1 && battleTextMe.search('damage') != -1) {
               if (battleTextMe.split('for ')[1].split(' damage')[1] != null) {
                 battleDamageDealt0 = battleTextMe.split('for ')[1].split(' damage')[0]
@@ -162,10 +168,10 @@ function statsLoop() {
       if (updatedClanCredits != true) {
         if (document.getElementsByClassName('contentcontent')[0].getElementsByTagName('center')[0].innerText.split('successfully spent ')[1] != null) {
           currentClanCreditsSaved = await GM.getValue('ClanCredits', 0);
-          spentCredits = document.getElementsByClassName('contentcontent')[0].getElementsByTagName('center')[0].innerText.split('successfully spent ')[1].split(' clan credits')[0]
+          var spentCredits = document.getElementsByClassName('contentcontent')[0].getElementsByTagName('center')[0].innerText.split('successfully spent ')[1].split(' clan credits')[0]
           currentClanCreditsFinal = parseInt(parseInt(currentClanCreditsSaved).trim().replace(/,/g, '') - parseInt(spentCredits.trim().replace(/,/g, '')))
         } else if (document.getElementsByClassName('contentcontent')[0].getElementsByTagName('center')[0].innerText.split('You currently have: ')[1] != null) {
-          currentCredits = document.getElementsByClassName('contentcontent')[0].getElementsByTagName('center')[0].innerText.split('You currently have: ')[1].split(' clan credits')[0]
+          var currentCredits = document.getElementsByClassName('contentcontent')[0].getElementsByTagName('center')[0].innerText.split('You currently have: ')[1].split(' clan credits')[0]
           currentClanCreditsFinal = parseInt(currentCredits.trim().replace(/,/g, ''))
         } else if (document.getElementsByClassName('contentcontent')[1].getElementsByTagName('center')[0].innerText.split('You currently have: ')[1] != null) {
           currentCredits = document.getElementsByClassName('contentcontent')[1].getElementsByTagName('center')[0].innerText.split('You currently have: ')[1].split(' clan credits')[0]
@@ -277,7 +283,7 @@ function statsLoop() {
       customContent.style = 'background: rgba(0, 0, 0, 0.7); color: #fff; font: 12px Tahoma,Arial,Hevetica,Sans-serif;'
       body.insertBefore(customTitle, body.childNodes[44])
       body.insertBefore(customContent, body.childNodes[45])
-      customHTML0 = document.getElementsByClassName('footer')[0].innerHTML
+      var customHTML0 = document.getElementsByClassName('footer')[0].innerHTML
       document.getElementsByClassName('footer')[0].innerHTML = '<br>' + customHTML0 + '<br>'
     }
   }
