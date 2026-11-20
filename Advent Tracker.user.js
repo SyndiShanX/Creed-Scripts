@@ -33,8 +33,8 @@
             customCenter.appendChild(customAdventText)
             customContent.appendChild(customCenter)
             customContent.className = 'contentcontent'
-            body.insertBefore(customTitle, body.childNodes[10])
-            body.insertBefore(customContent, body.childNodes[11])
+            body.insertBefore(customTitle, body.childNodes[29])
+            body.insertBefore(customContent, body.childNodes[30])
             var customHTML = document.getElementsByClassName('contentcontent')[0].innerHTML
             document.getElementsByClassName('contentcontent')[0].innerHTML = '<br>' + customHTML + '<br>'
         }

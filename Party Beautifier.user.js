@@ -183,8 +183,20 @@ if (window.location.href.split('=')[0] == 'https://pokemoncreed.net/pokemon.php?
   document.getElementsByTagName('head')[0].getElementsByTagName('link')[0].href = 'https://pokemoncreed.net/s4.css?v=4'
 } else {
   //Global Party Level Beautifier
+
+  const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+  while(document.getElementsByClassName("synleftmenu")[0] == undefined || document.getElementsByClassName("synleftmenu")[0].children[0] == undefined || document.getElementsByClassName("synleftmenu")[0].children[0].children[0] == undefined || document.getElementsByClassName("synleftmenu")[0].children[0].children[0].children[0] == undefined) {
+    await sleep(100);
+  }
+
   var pokeBar = document.getElementsByClassName("synleftmenu")[0].children[0].children[0].children[0]
-  var pokeBar_2 = document.getElementsByClassName("rightmenu")[0].children[1].children[0]
+  var pokeBar_2 = ''
+
+  if(document.getElementsByClassName("rightmenu")[0].children[1].tagName == 'TABLE') {
+    pokeBar_2 = document.getElementsByClassName("rightmenu")[0].children[1].children[0]
+  } else if(document.getElementsByClassName("rightmenu")[0].children[2].tagName == 'TABLE') {
+    pokeBar_2 = document.getElementsByClassName("rightmenu")[0].children[2].children[0]
+  }
 
   var pokeBar1 = pokeBar.children[0]
   var pokeBar2 = pokeBar.children[1]
@@ -257,6 +269,7 @@ if (window.location.href.split('=')[0] == 'https://pokemoncreed.net/pokemon.php?
     }
     levelGradient = []
   }
+
   if (pokeBar5.children[0].children[0].tagName != 'IMG') {
   	var pokeBarLevel5 = pokeBar5.children[0].children[0].children[6].children[0].innerText
   	var pokeBarLevel5_1 = pokeBarLevel5.split('Level: ')[1]
