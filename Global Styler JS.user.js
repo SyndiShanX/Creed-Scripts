@@ -73,7 +73,7 @@ var synMessages = synLeftMenu.split('<li><a href="messages.php">')[1].split('</a
 var synEvents = synLeftMenu.split('<li><a href="events.php">')[1].split('</a></li>')[0]
 
 // Useful Links Custom Menu
-var synCustomMenu = '<div class="menu9"><ul><li class="header">Useful Links</li><li><a href="messages.php">' + synMessages + '</a></li>\n<li><a href="events.php">' + synEvents + '</a></li><li><a href="luckydip.php">Lucky Dip</a></li><li><a href="raffle.php">Raffle</a></li><li><a href="hitdown.php">Hitdown</a></li><li><a href="clanrewards.php">Clan Rewards</a></li><li><a href="fishing.php">Fishing</a></li><li><a href="advent.php">Advent Calendar</a></li></ul></div>'
+var synCustomMenu = '<div class="menu9"><ul><li class="header">Useful Links</li><li><a href="messages.php">' + synMessages + '</a></li>\n<li><a href="events.php">' + synEvents + '</a></li><li><a href="luckydip.php">Lucky Dip</a></li><li><a href="raffle.php">Raffle</a></li><li><a href="hitdown.php">Hitdown</a></li><li><a href="daily_quests.php">Daily Quests</a></li><li><a href="clanrewards.php">Clan Rewards</a></li><li><a href="fishing.php">Fishing</a></li><li><a href="advent.php">Advent Calendar</a></li></ul></div>'
 
 // Party
 var synPartyHTML = document.getElementsByClassName("header")[0].outerHTML
