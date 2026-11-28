@@ -27,6 +27,7 @@
 // Updated (11/9/24) Reverted Double Line Break Fix (Line 36 + 37)
 // Updated (11/9/26) Added Daily Quests Shortcut (Line 77)
 // Updated (11/19/26) Fixed Issues with New Page Layouts (Lines 29, 32, 35, 37, 44-45, 49-50, 53-54, 56, 59, 63-64, 67, 73, 82, 100-102)
+// Updated (11/27/26) Fixed Menu 3 Overflow (Line 45)
 // Left Menu
 var synMenuEnd = "</a></li></ul></div>"
 var synMenuStart = '<li class="header'
@@ -41,8 +42,7 @@ var synLeftMenu1 = '<div class="menu1"><ul>' + synHTML3[0] + synMenuEnd
 //synLeftMenu1 = synLeftMenu1[0] + "\n" + synLeftMenu1[1]
 var synLeftMenu2 = '<div class="menu2"><ul>' + synMenuStart + synHTML3[1] + synMenuEnd
 var synLeftMenu3 = '<div class="menu3"><ul>' + synMenuStart + synHTML3[2] + synMenuEnd
-console.log(synLeftMenu3.replace("<li><a href='buy.php'>Buy Pokemon</a></li>\n", ''))
-synLeftMenu3 = synLeftMenu3.split("Dep. Store</a></li>")[0] + 'Dep. Store</a></li>\n<li><a href="sell.php"' + synLeftMenu3.split('<a href="sell.php"')[1]
+//synLeftMenu3 = synLeftMenu3.split("Dep. Store</a></li>")[0] + 'Dep. Store</a></li>\n<li><a href="sell.php"' + synLeftMenu3.split('<a href="sell.php"')[1]
 var synLeftMenu4 = '<div class="menu6"><ul>' + synMenuStart + synHTML3[4] + synMenuEnd
 var synLeftMenu = synLeftMenu1 + "\n\n" + synLeftMenu2 + "\n\n" + synLeftMenu3 + "\n\n" + synLeftMenu4
 
